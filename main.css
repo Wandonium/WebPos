@@ -1,0 +1,57 @@
+/* table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+/* body,
+html {
+  display: flex;
+  background-color: #eee;
+  background-image: url("https://source.unsplash.com/random/500x500");
+  background-position: center;
+  background-size: 9000%;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+} */
+
+.box {
+  padding: 20px 20px 0 20px;
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: burlywood;
+}
+
+.img {
+  width: 250px;
+  transform: translate(-50px, -70px);
+  box-shadow: 10px 10px 6px -6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.img-container {
+  display: inline-block;
+}
+
+.barcode {
+  color: #fff;
+  background: #563d7c;
+}

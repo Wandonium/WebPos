@@ -1,0 +1,23 @@
+{
+  "name": "webpos2",
+  "version": "1.0.0",
+  "description": "A static point of sale web app.",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo \"no build required\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesandbox-app/static-template.git"
+  },
+  "keywords": [],
+  "author": "Ives van Hoorne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codesandbox-app/static-template/issues"
+  },
+  "homepage": "https://github.com/codesandbox-app/static-template#readme",
+  "dependencies": {
+    "emmet": "2.0.0-rc.3"
+  }
+}
