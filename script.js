@@ -68,11 +68,33 @@ for (var i = 0; i < data.length; i++) {
   tr += "</tr>";
   tbody.innerHTML += tr;
 }
+var productCard = document.getElementById("mycard");
+productCard.style.display = "none";
 
+var currentObject = null;
 document.getElementById("tableId").onclick = function(e) {
   var tr = e.target.parentNode;
   var index = tr.cells[0].textContent - 1;
-  var currentObject = data[index];
+  currentObject = data[index];
+  var content = document.getElementById("main-content");
+  console.log(content);
+  content.classList.add("animated");
+  content.classList.add("slideOutLeft");
+  setTimeout(function() {
+    content.style.display = "none";
+    productCard.style.display = "block";
+  }, 800);
   var headline = document.getElementById("product-headline");
   headline.innerHTML = currentObject.name;
+  document.getElementById("productBarcode").value = currentObject.barcode;
+  document.getElementById("productCategory").value = currentObject.category;
+  document.getElementById("productPrice").value = currentObject.price;
 };
+
+function calculate() {
+  var quantity = document.getElementById("productQuantity").innerHTML;
+  document.getElementById("totalAmount").value = currentObject.price * quantity;
+}
+
+var barcode = document.getElementById("bcode");
+console.log("Barcode", barcode);

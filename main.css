@@ -1,57 +1,54 @@
-/* table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+body {
+  background-color: #444;
 }
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.card-body {
+  padding: .5rem;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.row.no-pad {
+  margin-left:-50px;
+}
+
+.form-group {
+  margin-bottom: .25rem;
+}
+
+.payment .form-control {
+  background-color: black;
+  color: white;
+}
+
+.btn {
+  margin-right: 1rem;
+  background-color: #07889B;
+}
+
+.sale-items {
+  padding-left: 0;
+}
+
+.card-header {
+  background-color: #C0B283;
+}
+
+/* td {
+  color: white;
+}
+
+.row-num {
+  color: white;
+}*/
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+  background-color: #E7DFDD;
+  color: #E7DFDD;
+}
+
+.table-striped tbody tr:nth-of-type(2n) {
+  color: rgba(255,255,255);
+}
+/* .row.no-pad > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 } */
-
-/* body,
-html {
-  display: flex;
-  background-color: #eee;
-  background-image: url("https://source.unsplash.com/random/500x500");
-  background-position: center;
-  background-size: 9000%;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-family: sans-serif;
-} */
-
-.box {
-  padding: 20px 20px 0 20px;
-  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  background-color: burlywood;
-}
-
-.img {
-  width: 250px;
-  transform: translate(-50px, -70px);
-  box-shadow: 10px 10px 6px -6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.img-container {
-  display: inline-block;
-}
-
-.barcode {
-  color: #fff;
-  background: #563d7c;
-}
