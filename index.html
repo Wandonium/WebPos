@@ -19,7 +19,7 @@
                                     <div class="form-row">
                                         <div class="pull-left frm-input col-6">
                                             <label for="barcode">Barcode
-                                                <input type="text" id="bcode" class="form-control w-75" name="barcode" placeholder="Enter barcode...">
+                                                <input type="text" id="bcode" onkeydown="keyListener()" oninput="onBarcodeChange()" class="form-control w-75" name="barcode" placeholder="Enter barcode...">
                                             </label>
                                         </div>
                                         <div class="frm-input col-6">
@@ -43,7 +43,7 @@
                                 </form>
                                 <div class="">
                                 <button class="btn btn-primary mybtn">Search</button>
-                                <button class="btn btn-primary mybtn">Add</button>
+                                <button onclick="addItem()" class="btn btn-primary mybtn">Add</button>
                                 <button class="btn btn-primary mybtn">Remove</button>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Barcode</th>
-                                    <th scope="col">Item</th>
+                                    <th scope="col">Item Description</th>
                                     <th scope="col">Unit Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">%VAT</th>
@@ -153,7 +153,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">4</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>
@@ -163,7 +163,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">5</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>
@@ -173,7 +173,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">6</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>
@@ -183,7 +183,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">7</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>
@@ -193,7 +193,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">8</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>
@@ -203,27 +203,7 @@
                                     <td>30,000.00</td>
                                 </tr>
                                 <tr>
-                                    <th class="row-num" scope="row">3</th>
-                                    <td>32340340080</td>
-                                    <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
-                                    <td>15,000.00</td>
-                                    <td>2</td>
-                                    <td>16.00</td>
-                                    <td>0.00</td>
-                                    <td>30,000.00</td>
-                                </tr>
-                                <tr>
-                                    <th class="row-num" scope="row">3</th>
-                                    <td>32340340080</td>
-                                    <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
-                                    <td>15,000.00</td>
-                                    <td>2</td>
-                                    <td>16.00</td>
-                                    <td>0.00</td>
-                                    <td>30,000.00</td>
-                                </tr>
-                                <tr>
-                                    <th class="row-num" scope="row">3</th>
+                                    <th class="row-num" scope="row">9</th>
                                     <td>32340340080</td>
                                     <td style="text-transform: uppercase;">3drawer cabinet filling tp-028</td>
                                     <td>15,000.00</td>

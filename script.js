@@ -1,100 +1,128 @@
 var data = [
   {
-    barcode: 123456,
-    name: "Coca Cola Soda",
-    category: "Soft Drinks",
-    description: "500ml plastic bottle soda, Fanta Passion",
-    price: 50.0,
-    tax: 0.05
+    barcode: 62345400989,
+    lookup: "#3445CB2",
+    item: "Coffee Table 815-3R",
+    price: 10500,
+    quantity: 1,
+    tax: 16,
+    discount: 0,
+    total: 10500.00
   },
   {
-    barcode: 456123,
-    name: "Hanaan Toilet Paper",
-    category: "Toiletries",
-    description: "Small roll toilet paper",
-    price: 10.0,
-    tax: 0.02
+    barcode: 5678,
+    lookup: "#F8G893",
+    item: "10MM drill",
+    price: 15541.70,
+    quantity: 1,
+    tax: 16,
+    discount: 0,
+    total: 15541.70
   },
   {
-    barcode: 456789,
-    name: "Persil Washing Powder",
-    category: "Washing Soap",
-    description: "500gm of washing powder",
-    price: 80.0,
-    tax: 0.05
+    barcode: 1245,
+    lookup: "#898DSD",
+    item: "250L of Water, Aqua Ltd",
+    price: 250.50,
+    quantity: 2,
+    tax: 16,
+    discount: 0,
+    total: 500
+  },
+  {
+    barcode: 1234,
+    lookup: "#898ASDX",
+    item: "Ironing Board, Philips",
+    price: 8050,
+    quantity: 1,
+    tax: 16,
+    discount: 0,
+    total: 8050
   }
-];
+]
 
-//console.log(data);
+var oddRowIndex = 0;
+var evenRowIndex = 0;
+var tableRow = 1;
+
+console.log("Hello World.");
+function addItem() {
+  tableManuvre();
+}
+
 var tbody = document.getElementById("tbody");
-
-tbody.innerHTML +=
-  "<thead class='thead-dark'>" +
-  "<tr>" +
-  "<th id='#'>" +
-  "#" +
-  "</th>" +
-  "<th id='barcode'>" +
-  "Product Barcode" +
-  "</th>" +
-  "<th id='name'>" +
-  "Product Name" +
-  "</th>" +
-  "<th id='category'>" +
-  "Product Category" +
-  "</th>" +
-  "<th id='description'>" +
-  "Description" +
-  "</th>" +
-  "<th id='price'>" +
-  "Price" +
-  "</th>" +
-  "<th id='tax'>" +
-  "Percentage Tax" +
-  "</th>" +
-  "</tr>" +
-  "</thead>";
-for (var i = 0; i < data.length; i++) {
-  var tr = "<tr>";
-  var item = data[i];
-  // console.log(item);
-  tr += "<td>" + (i + 1) + "</td>";
-  tr += "<td>" + item.barcode + "</td>";
-  tr += "<td>" + item.name + "</td>";
-  tr += "<td>" + item.category + "</td>";
-  tr += "<td>" + item.description + "</td>";
-  tr += "<td>" + item.price + "</td>";
-  tr += "<td>" + item.tax + "</td>";
-  tr += "</tr>";
-  tbody.innerHTML += tr;
-}
-var productCard = document.getElementById("mycard");
-productCard.style.display = "none";
-
-var currentObject = null;
-document.getElementById("tableId").onclick = function(e) {
-  var tr = e.target.parentNode;
-  var index = tr.cells[0].textContent - 1;
-  currentObject = data[index];
-  var content = document.getElementById("main-content");
-  console.log(content);
-  content.classList.add("animated");
-  content.classList.add("slideOutLeft");
-  setTimeout(function() {
-    content.style.display = "none";
-    productCard.style.display = "block";
-  }, 800);
-  var headline = document.getElementById("product-headline");
-  headline.innerHTML = currentObject.name;
-  document.getElementById("productBarcode").value = currentObject.barcode;
-  document.getElementById("productCategory").value = currentObject.category;
-  document.getElementById("productPrice").value = currentObject.price;
-};
-
-function calculate() {
-  var quantity = document.getElementById("productQuantity").innerHTML;
-  document.getElementById("totalAmount").value = currentObject.price * quantity;
+var oddRows = document.querySelectorAll(".table-striped tbody tr:nth-of-type(2n+1)");
+var evenRows = document.querySelectorAll(".table-striped tbody tr:nth-of-type(2n)");
+function tableColoring() {
+  oddRows.forEach((element) => {
+    element.style.backgroundColor = "#E7DFDD";
+    element.style.color = "#E7DFDD";
+  });
+  evenRows.forEach((element) => element.style.color = "white");
 }
 
-var barcode = document.getElementById("bcode");
-console.log("Barcode", barcode);
+tableColoring();
+function keyListener(event){
+  var keycode;
+  if (window.event)
+      keycode = window.event.keyCode;
+  else if (e)
+      keycode = e.which;
+  
+  if(keycode === 13) {
+    console.log("Key pressed.")
+    tableManuvre();
+  }
+}
+
+function tableManuvre() {
+  var barcode = document.getElementById("bcode").value;
+  var item = document.getElementById("item");
+  var lookup = document.getElementById("icode");
+  if(tableRow < 10) {
+    for(var i = 0; i < data.length; i++) {
+      if(data[i].barcode == barcode) {
+        if((tableRow % 2) === 0) {
+          evenRows[evenRowIndex].style.color = "black";
+          var cells = evenRows[evenRowIndex].getElementsByTagName("td");
+          cells[0].innerHTML = data[i].barcode;
+          cells[1].innerHTML = data[i].item;
+          cells[2].innerHTML = data[i].price;
+          cells[3].innerHTML = data[i].quantity;
+          cells[4].innerHTML = data[i].tax;
+          cells[5].innerHTML = data[i].discount;
+          cells[6].innerHTML = data[i].total;
+          evenRowIndex = evenRowIndex + 1;
+          item.value = data[i].item;
+          lookup.value = data[i].lookup;
+        } else {
+          oddRows[oddRowIndex].style.color="black";
+          var cells = oddRows[oddRowIndex].getElementsByTagName("td");
+          cells[0].innerHTML = data[i].barcode;
+          cells[1].innerHTML = data[i].item;
+          cells[2].innerHTML = data[i].price;
+          cells[3].innerHTML = data[i].quantity;
+          cells[4].innerHTML = data[i].tax;
+          cells[5].innerHTML = data[i].discount;
+          cells[6].innerHTML = data[i].total;
+          oddRowIndex = oddRowIndex + 1;
+          item.value = data[i].item;
+          lookup.value = data[i].lookup;
+        }
+        tableRow = tableRow + 1;
+      }
+    }
+  } else {
+    tableRow = 1;
+    evenRowIndex = 0;
+    oddRowIndex = 0;
+    tableColoring();
+  }
+}
+
+function onBarcodeChange() {
+  /*var barcode = document.getElementById("bcode").value;
+  for(var i = 0; i < data.length; i++) {
+    console.log(data[i].barcode);
+  }*/
+}
