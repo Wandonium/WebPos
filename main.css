@@ -28,10 +28,13 @@ body {
   padding-left: 0;
 }
 
-.card-header {
+.card-header, .modal-header {
   background-color: #C0B283;
 }
 
+.special-font {
+  font-family: 'Cedarville Cursive', cursive;
+}
 /* .table-striped tbody tr:nth-of-type(2n+1) {
   background-color: #E7DFDD;
   color: #E7DFDD;
