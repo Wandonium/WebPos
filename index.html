@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Web POS</title>
@@ -7,8 +8,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#instructions").modal('show');
+        });
+    </script>
 </head>
+
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Some Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <p>Hello there. This is a demo project so you will have to use dummy data. Please only use the following numbers as barcodes to test this demo:
+                    </p>
+                    <ul>
+                        <li>1234</li>
+                        <li>1245</li>
+                        <li>5678</li>
+                        <li>7890</li>
+                    </ul>
+                    <p>To view these instructions again please click on the Instructions button. More instructions on how to use this demo can be found
+                        <a href="https://github.com/Wandonium/WebPos" target="_blank">here</a>. We hope you find this demo useful.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row no-pad">
             <div class="col-4">
@@ -43,71 +80,71 @@
                                     </div>
                                 </form>
                                 <div class="">
-                                <button onclick="searchItem()" class="btn btn-primary mybtn">Search</button>
-                                <button onclick="addItem()" class="btn btn-primary mybtn">Add</button>
-                                <button onclick="removeItem()" class="btn btn-primary mybtn">Remove</button>
+                                    <button onclick="searchItem()" class="btn btn-primary mybtn">Search</button>
+                                    <button onclick="addItem()" class="btn btn-primary mybtn">Add</button>
+                                    <button onclick="removeItem()" class="btn btn-primary mybtn">Remove</button>
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container py-3">
-                                                <div class="card">
-                                                    <div class="row ">
-                                                        <div class="col-md-4">
-                                                            <img src="download.jpg" class="w-100">
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="card-block">
-                                                                <form>
-                                                                    <div class="form-group row">
-                                                                        <label for="barcode" class="col-sm-6 col-form-label">Barcode:</label>
-                                                                        <div class="col-sm-6">
-                                                                            <input type="text" readonly class="form-control-plaintext" id="modalBarcode" value="Kshs 0.00"/>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container py-3">
+                                                    <div class="card">
+                                                        <div class="row ">
+                                                            <div class="col-md-4">
+                                                                <img src="download.jpg" class="w-100">
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="card-block">
+                                                                    <form>
+                                                                        <div class="form-group row">
+                                                                            <label for="barcode" class="col-sm-6 col-form-label">Barcode:</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" readonly class="form-control-plaintext" id="modalBarcode" value="Kshs 0.00" />
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label for="lookupCode" class="col-sm-6 col-form-label">Look up code:</label>
-                                                                        <div class="col-sm-6">
-                                                                            <input type="text" readonly class="form-control-plaintext" id="modalLookup" value="#0000" autocomplete="off">
+                                                                        <div class="form-group row">
+                                                                            <label for="lookupCode" class="col-sm-6 col-form-label">Look up code:</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" readonly class="form-control-plaintext" id="modalLookup" value="#0000" autocomplete="off">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label for="description" class="col-sm-6 col-form-label">Description:</label>
-                                                                        <div class="col-sm-6">
-                                                                        <input type="text" readonly class="form-control-plaintext" id="description" value="Item Description" autocomplete="off">
+                                                                        <div class="form-group row">
+                                                                            <label for="description" class="col-sm-6 col-form-label">Description:</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" readonly class="form-control-plaintext" id="description" value="Item Description" autocomplete="off">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label for="modalPrice" class="col-sm-6 col-form-label">Price:</label>
-                                                                        <div class="col-sm-6">
-                                                                        <input type="text" readonly class="form-control-plaintext" id="modalPrice" value="Kshs 0.00" autocomplete="off">
+                                                                        <div class="form-group row">
+                                                                            <label for="modalPrice" class="col-sm-6 col-form-label">Price:</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" readonly class="form-control-plaintext" id="modalPrice" value="Kshs 0.00" autocomplete="off">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label for="modalTax" class="col-sm-6 col-form-label">Percentage Tax:</label>
-                                                                        <div class="col-sm-6">
-                                                                        <input type="text" readonly class="form-control-plaintext" id="modalTax" value="Kshs 0.00">
+                                                                        <div class="form-group row">
+                                                                            <label for="modalTax" class="col-sm-6 col-form-label">Percentage Tax:</label>
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" readonly class="form-control-plaintext" id="modalTax" value="Kshs 0.00">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                </form>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -139,25 +176,25 @@
                                     <div class="form-group row">
                                         <label for="credit-card" class="col-sm-6 col-form-label">Credit Card</label>
                                         <div class="col-sm-6 payment">
-                                        <input type="text" class="form-control" id="credit-card" placeholder="">
+                                            <input type="text" class="form-control" id="credit-card" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="loyalty-points" class="col-sm-6 col-form-label">Loyalty Points</label>
                                         <div class="col-sm-6 payment">
-                                        <input type="text" class="form-control" id="loyalty-points" placeholder="">
+                                            <input type="text" class="form-control" id="loyalty-points" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="cash-tendered" class="col-sm-6 col-form-label">Cash Tendered</label>
                                         <div class="col-sm-6 payment">
-                                        <input type="text" onkeydown="calculateBalance()" class="form-control" id="cash-tendered" placeholder="">
+                                            <input type="text" onkeydown="calculateBalance()" class="form-control" id="cash-tendered" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="balance" class="col-sm-6 col-form-label">Balance</label>
                                         <div class="col-sm-6">
-                                        <input type="text" readonly class="form-control-plaintext" id="balance" value="Kshs 0.00">
+                                            <input type="text" readonly class="form-control-plaintext" id="balance" value="Kshs 0.00">
                                         </div>
                                     </div>
                                 </form>
@@ -290,62 +327,64 @@
                         <button class="btn btn-primary">Exit</button>
                         <button onclick="clearItems()" class="btn btn-primary">Clear</button>
                         <button onclick="openDrawer()" class="btn btn-primary">Open Drawer</button>
+                        <button onclick="viewInstructions()" class="btn btn-primary">Instructions</button>
                     </div>
 
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Cash Drawer Open</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Cash Drawer Open</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="total-sale" class="col-sm-6 col-form-label">Total Sale</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" readonly class="form-control-plaintext" id="t-sale" value="Kshs 0.00">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="loyalty-points" class="col-sm-6 col-form-label">Loyalty Points</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" readonly class="form-control-plaintext" id="l-points" value="0 points">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="cash-tendered" class="col-sm-6 col-form-label">Cash Tendered</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" readonly class="form-control-plaintext" id="c-tendered" value="Kshs 0.00">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="balance" class="col-sm-6 col-form-label">Balance</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" readonly class="form-control-plaintext" id="l-balance" value="Kshs 0.00">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <h4 class="special-font">Thank the Customer</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                            <div class="modal-body text-center">
-                                <form>
-                                    <div class="form-group row">
-                                        <label for="total-sale" class="col-sm-6 col-form-label">Total Sale</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" readonly class="form-control-plaintext" id="t-sale" value="Kshs 0.00">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="loyalty-points" class="col-sm-6 col-form-label">Loyalty Points</label>
-                                        <div class="col-sm-6">
-                                        <input type="text" readonly class="form-control-plaintext" id="l-points" value="0 points">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cash-tendered" class="col-sm-6 col-form-label">Cash Tendered</label>
-                                        <div class="col-sm-6">
-                                        <input type="text" readonly class="form-control-plaintext" id="c-tendered" value="Kshs 0.00">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="balance" class="col-sm-6 col-form-label">Balance</label>
-                                        <div class="col-sm-6">
-                                        <input type="text" readonly class="form-control-plaintext" id="l-balance" value="Kshs 0.00">
-                                        </div>
-                                    </div>
-                                </form>
-                                <h4 class="special-font">Thank the Customer</h4>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-      
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="script.js"></script>
+
 </html>
